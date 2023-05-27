@@ -10,6 +10,7 @@ import com.robor_dreams.hotel.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,6 +44,10 @@ public class RoomService {
         var reservation = reservationRepository.findById(idReservation).get();
         reservation.setRoom_id(idRoom);
         reservationRepository.save(reservation);
+    }
+
+    public List<RoomDto> freeRoom (LocalDate dateBegin,LocalDate dateEnd){
+        return roomRepository.freeRoom(dateBegin,dateEnd).stream().map(RoomService::buildGuestDto).collect(Collectors.toList());
     }
 
 }

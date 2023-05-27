@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -33,11 +34,16 @@ public class RoomController {
     }
     @GetMapping("/room")
     public ResponseEntity <List<RoomDto>> findAll(){
-       return ResponseEntity.ok(roomService.findAll());
+
+        return ResponseEntity.ok(roomService.findAll());
     }
     @PostMapping("/room/{idRoom}/reservation/{idReservation}")
     public ResponseEntity<Void> changeRoom (@PathVariable Long idRoom,@PathVariable Long idReservation){
        roomService.changeRoom(idRoom,idReservation);
        return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+    }
+    @GetMapping("/room/{dateBegin}/{dateEnd}")
+    public ResponseEntity<List<RoomDto>> freeRoom(@PathVariable LocalDate dateBegin,@PathVariable LocalDate dateEnd){
+        return ResponseEntity.ok(roomService.freeRoom(dateBegin, dateEnd));
     }
 }

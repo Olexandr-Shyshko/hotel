@@ -32,6 +32,8 @@ public class ReservationService {
     private static ReservationDto buildReservationDto (Reservation reservation){
         return ReservationDto.builder()
                 .id(reservation.getId())
+                .guestId(reservation.getGuest_id())
+                .roomId(reservation.getRoom_id())
                 .dateBegin(reservation.getDateBegin())
                 .dateEnd(reservation.getDateEnd())
                 .isClose(reservation.getIsClose())

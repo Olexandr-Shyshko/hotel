@@ -11,8 +11,8 @@ import java.time.LocalDate;
 @Setter
 public class ReservationDto {
     private Long id;
-    private String roomName;
-    private String guestName;
+    private Long roomId;
+    private Long guestId;
     private LocalDate dateBegin;
     private LocalDate dateEnd;
     private Integer isClose;

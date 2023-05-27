@@ -1,11 +1,14 @@
 package com.robor_dreams.hotel.rest;
 
 import com.robor_dreams.hotel.domain.Reservation;
+import com.robor_dreams.hotel.dto.ReservationDto;
 import com.robor_dreams.hotel.service.ReservationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -31,5 +34,9 @@ public class ReservationController {
     @DeleteMapping("/reservation/{id}")
     public void deleteReservation(@PathVariable Long id) {
         reservationService.deleteReservation(id);
+    }
+    @GetMapping("/reservation")
+    public ResponseEntity<List<ReservationDto>> findAll(){
+        return ResponseEntity.ok(reservationService.findAll());
     }
 }

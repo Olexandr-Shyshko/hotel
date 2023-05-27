@@ -10,10 +10,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface GuestRepository extends JpaRepository<Guest,Long> {
+public interface GuestRepository extends JpaRepository<Guest, Long> {
     @Query("SELECT g FROM Guest g where g.fullName LIKE %?1% or g.taxIdNumb LIKE %?2%")
 //    @Query("SELECT g FROM Guest g where g.fullName=?1 or g.taxIdNumb=?2")
-    List<Guest> findByFullNameOrTAX (String fullName, String taxIndNumber);
-
+    List<Guest> findByFullNameOrTAX(String fullName, String taxIndNumber);
 }
 
