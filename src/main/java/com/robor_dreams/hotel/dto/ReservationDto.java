@@ -1,18 +1,19 @@
 package com.robor_dreams.hotel.dto;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.Entity;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Builder
 @Getter
 @Setter
-public class ReservationDto {
+@AllArgsConstructor
+@NoArgsConstructor
+public class ReservationDto implements ReservDto {
     private Long id;
-    private Long roomId;
-    private Long guestId;
+    private String guestName;
+    private String roomName;
     private LocalDate dateBegin;
     private LocalDate dateEnd;
     private Integer isClose;

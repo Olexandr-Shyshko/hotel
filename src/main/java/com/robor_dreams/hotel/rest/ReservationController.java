@@ -1,6 +1,7 @@
 package com.robor_dreams.hotel.rest;
 
 import com.robor_dreams.hotel.domain.Reservation;
+import com.robor_dreams.hotel.dto.ReservDto;
 import com.robor_dreams.hotel.dto.ReservationDto;
 import com.robor_dreams.hotel.service.ReservationService;
 import lombok.RequiredArgsConstructor;
@@ -20,11 +21,13 @@ public class ReservationController {
         reservationService.saveReservation(reservation);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+
     @PutMapping("/reservation")
     public ResponseEntity<Void> updateReservation(@RequestBody Reservation reservation) {
         reservationService.saveReservation(reservation);
         return ResponseEntity.status(HttpStatus.ACCEPTED).build();
     }
+
     @PostMapping("/reservation/{id}")
     public ResponseEntity<Void> cancelReservation(@PathVariable Long id) {
         reservationService.cancelReservation(id);
@@ -35,8 +38,9 @@ public class ReservationController {
     public void deleteReservation(@PathVariable Long id) {
         reservationService.deleteReservation(id);
     }
+
     @GetMapping("/reservation")
-    public ResponseEntity<List<ReservationDto>> findAll(){
-        return ResponseEntity.ok(reservationService.findAll());
+    public ResponseEntity<List<ReservDto>> findAll() {
+        return ResponseEntity.ok(reservationService.findAllReservation());
     }
 }

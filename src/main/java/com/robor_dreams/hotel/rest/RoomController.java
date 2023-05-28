@@ -43,7 +43,7 @@ public class RoomController {
        return ResponseEntity.status(HttpStatus.ACCEPTED).build();
     }
     @GetMapping("/room/{dateBegin}/{dateEnd}")
-    public ResponseEntity<List<RoomDto>> freeRoom(@PathVariable LocalDate dateBegin,@PathVariable LocalDate dateEnd){
-        return ResponseEntity.ok(roomService.freeRoom(dateBegin, dateEnd));
+    public ResponseEntity<List<RoomDto>> findFreeRoom(@PathVariable LocalDate dateBegin,@PathVariable LocalDate dateEnd){
+        return ResponseEntity.ok(roomService.findFreeRoom(dateBegin, dateEnd));
     }
 }

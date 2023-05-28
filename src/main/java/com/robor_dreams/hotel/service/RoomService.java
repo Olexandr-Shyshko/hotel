@@ -46,8 +46,8 @@ public class RoomService {
         reservationRepository.save(reservation);
     }
 
-    public List<RoomDto> freeRoom (LocalDate dateBegin,LocalDate dateEnd){
-        return roomRepository.freeRoom(dateBegin,dateEnd).stream().map(RoomService::buildGuestDto).collect(Collectors.toList());
+    public List<RoomDto> findFreeRoom (LocalDate dateBegin,LocalDate dateEnd){
+        return roomRepository.findFreeRoom(dateBegin,dateEnd).stream().map(RoomService::buildGuestDto).collect(Collectors.toList());
     }
 
 }
