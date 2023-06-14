@@ -9,6 +9,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface RoomRepository extends JpaRepository<Room,Long> {
-    @Query("select r from Room r where r.id not in (select rs.roomId from Reservation rs where rs.dateBegin <= :dateInto and rs.dateEnd >= :dateFrom)")
+    @Query("select r from Room r where r.id not in (select rs.roomId from Reservation rs where rs.isClose=0 and rs.dateBegin < :dateInto and rs.dateEnd > :dateFrom)")
     List<Room> findFreeRoom (@Param("dateFrom") LocalDate dateFrom, @Param("dateInto") LocalDate dateInto);
 }
