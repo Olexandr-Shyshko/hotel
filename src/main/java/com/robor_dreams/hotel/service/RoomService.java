@@ -1,9 +1,7 @@
 package com.robor_dreams.hotel.service;
 
 import com.robor_dreams.hotel.domain.Guest;
-import com.robor_dreams.hotel.domain.Reservation;
 import com.robor_dreams.hotel.domain.Room;
-import com.robor_dreams.hotel.dto.GuestDto;
 import com.robor_dreams.hotel.dto.RoomDto;
 import com.robor_dreams.hotel.repository.ReservationRepository;
 import com.robor_dreams.hotel.repository.RoomRepository;
@@ -42,7 +40,7 @@ public class RoomService {
 
     public void changeRoom (Long idRoom, Long idReservation){
         var reservation = reservationRepository.findById(idReservation).get();
-        reservation.setRoom_id(idRoom);
+        reservation.setRoomId(idRoom);
         reservationRepository.save(reservation);
     }
 

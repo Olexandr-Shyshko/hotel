@@ -16,10 +16,10 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
-    private Long room_id;
-    @Column
-    private Long guest_id;
+    @Column(name = "room_id")
+    private Long roomId;
+    @Column(name="guest_id")
+    private Long guestId;
     @Column
     private LocalDate dateBegin;
     @Column
