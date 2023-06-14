@@ -1,7 +1,7 @@
 package com.robor_dreams.hotel.repository;
 
 import com.robor_dreams.hotel.domain.Reservation;
-import com.robor_dreams.hotel.dto.ReservDto;
+import com.robor_dreams.hotel.dto.ReservationDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import java.util.List;
@@ -13,5 +13,5 @@ public interface ReservationRepository extends JpaRepository<Reservation,Long> {
                     "left join Room rm on rm.id=res.room_id\n" +
                     "left join Guest g on g.id=res.guest_id"
             ,nativeQuery = true)
-    List<ReservDto> findAllReservation();
+    List<ReservationDto> findAllReservation();
 }

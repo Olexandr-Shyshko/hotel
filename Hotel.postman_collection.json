@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "624d7a87-3793-4a5c-89da-97747cc9090e",
+		"name": "Hotel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27401733"
+	},
+	"item": [
+		{
+			"name": "Guest",
+			"item": [
+				{
+					"name": "CreateGuest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":\"Sidorov Vova\",\r\n    \"taxIdentNumb\":\"1355483\",\r\n    \"tel\":\"0972345665\",\r\n    \"email\":\"vova@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/guest"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateGuest",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":2,\r\n    \"fullName\":\"Sidorov Vova\",\r\n    \"taxIdentNumb\":\"6547484546\",\r\n    \"tel\":\"0635743723\",\r\n    \"email\":\"vova@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/guest"
+					},
+					"response": []
+				},
+				{
+					"name": "FindByNameOrTaxId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/guest/Ivanov Ivan/654748"
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/guest"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Room",
+			"item": [
+				{
+					"name": "CreateRoom",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"President\",\r\n    \"countPerson\":5,\r\n    \"price\":400\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/room"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRoom",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:8080/room/3"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateRoom",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":4,\r\n    \"name\":\"President-1\",\r\n    \"countPerson\":4,\r\n    \"price\":350\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/room"
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/room"
+					},
+					"response": []
+				},
+				{
+					"name": "ChangeRoom",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "localhost:8080/room/1/reservation/4"
+					},
+					"response": []
+				},
+				{
+					"name": "FindFreeRoom",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/room/2023-05-17/2023-05-18"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservation",
+			"item": [
+				{
+					"name": "CreateReservation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"room_id\":1,\r\n    \"guest_id\":2,\r\n    \"dateFrom\":\"2023/05/17\",\r\n    \"dateEnd\":\"2023/05/21\",\r\n    \"is_close\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/reservation"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateReservation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"id\":4,\r\n    \"room_id\":4,\r\n    \"guest_id\":2,\r\n    \"dateBegin\":\"2023-05-16\",\r\n    \"dateEnd\":\"2023-05-17\",\r\n    \"is_close\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/reservation"
+					},
+					"response": []
+				},
+				{
+					"name": "CancelReservation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8080/reservation/2"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteReservation",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/reservation/1"
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/reservation"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

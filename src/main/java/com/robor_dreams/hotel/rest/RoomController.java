@@ -34,7 +34,6 @@ public class RoomController {
     }
     @GetMapping("/room")
     public ResponseEntity <List<RoomDto>> findAll(){
-
         return ResponseEntity.ok(roomService.findAll());
     }
     @PostMapping("/room/{idRoom}/reservation/{idReservation}")

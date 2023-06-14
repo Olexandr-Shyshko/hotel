@@ -2,7 +2,7 @@ package com.robor_dreams.hotel.service;
 
 import com.robor_dreams.hotel.domain.Reservation;
 import com.robor_dreams.hotel.domain.Room;
-import com.robor_dreams.hotel.dto.ReservDto;
+import com.robor_dreams.hotel.dto.ReservationDto;
 import com.robor_dreams.hotel.repository.ReservationRepository;
 import com.robor_dreams.hotel.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
@@ -37,7 +37,7 @@ public class ReservationService {
         reservationRepository.save(reservation);
     }
 
-    public List<ReservDto> findAllReservation() {
+    public List<ReservationDto> findAllReservation() {
         return reservationRepository.findAllReservation();
     }
 }
